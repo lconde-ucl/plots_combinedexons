@@ -1,0 +1,14 @@
+# TEST SGE SCRIPT
+#$ -l h_vmem=32G
+#$ -l tmem=32G
+#$ -l h_rt=172800
+#$ -j y
+#$ -S /bin/bash
+## Use the current working directory for running the job
+#$ -cwd
+## Name your job
+#$ -N MM
+
+date
+Rscript 1_get_bedfiles_mm.R
+date
