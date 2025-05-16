@@ -4,8 +4,7 @@ library(stringr)
 
 
 
-#for (dir in c("human/bigwigs","human/bigwigs_subtract","human/bigwigs_nopseudo","mouse/bigwigs","mouse/bigwigs_subtract","mouse/bigwigs_nopseudo")){
-for (dir in c("human/bigwigs","mouse/bigwigs")){
+for (dir in c("human/bigwigs","human/bigwigs_subtract","human/bigwigs_nopseudo","mouse/bigwigs","mouse/bigwigs_subtract","mouse/bigwigs_nopseudo")){
 
 	means <- data.frame()
 
