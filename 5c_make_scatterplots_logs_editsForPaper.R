@@ -61,24 +61,27 @@ for (dir in c("human/bigwigs","mouse/bigwigs")){
 			file <- rbind(fileexon, fileintron)
 
 			#- make a scatterplot of the log
-			png(paste0(dir, "_plots/scatterplots_logs/scatterplot_", sample, "_",type,".png"))
 			#	geom_bin_2d(bins = 50) +
+			png(paste0(dir, "_plots/scatterplots_logs/scatterplot_", sample, "_", type, ".png"), width=600)
+
 			p <- ggplot(file, aes(x = mean_m, y = mean_p)) +
-			    geom_point() +
-			    scale_x_continuous(trans = scales::pseudo_log_trans(base = 10)) +
-			    scale_y_continuous(trans = scales::pseudo_log_trans(base = 10)) +
-			    geom_abline(intercept = 0, slope = 1, linetype = "dotted", color = "red") +  # Add diagonal line
-			    ggtitle(paste0(sample, " ", type)) +
-			    xlab("-tag (pseudo-log scale)") +
-			    ylab(paste0("+tag (pseudo-log scale)")) +
-			    theme_minimal(base_family = "Arial") +   # set font family
-			    theme(
-			        axis.title = element_text(size = 32, family = "Arial"),   # axis labels
-			        axis.text  = element_text(size = 30, family = "Arial")    # axis tick values
-			    )
+			  geom_point() +
+			  scale_x_continuous(trans = scales::pseudo_log_trans(base = 10)) +
+			  scale_y_continuous(trans = scales::pseudo_log_trans(base = 10)) +
+			  geom_abline(intercept = 0, slope = 1, linetype = "dotted", color = "red") +
+			  ggtitle(paste0(sample, " ", type)) +
+			  xlab("-tag (pseudo-log scale)") +
+			  ylab("+tag (pseudo-log scale)") +
+			  theme_minimal(base_family = "Arial") +   # keep your original theme
+			  theme(
+			    axis.title = element_text(size = 32, family = "Arial"),  # axis labels
+			    axis.text  = element_text(size = 20, family = "Arial"),  # axis tick values
+			    plot.margin = margin(20, 20, 20, 20)                     # <-- new line
+			  )
+			
 			print(p)
 			dev.off()
-
+			
 		}
 	}
 }
