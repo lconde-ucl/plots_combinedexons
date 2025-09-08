@@ -62,7 +62,7 @@ for (dir in c("human/bigwigs","mouse/bigwigs")){
 
 			#- make a scatterplot of the log
 			#	geom_bin_2d(bins = 50) +
-			png(paste0(dir, "_plots/scatterplots_logs/scatterplot_", sample, "_", type, ".png"), width=600)
+			png(paste0(dir, "_plots/scatterplots_logs/scatterplot_", sample, "_", type, ".png"), height=600,width=600)
 
 			p <- ggplot(file, aes(x = mean_m, y = mean_p)) +
 			  geom_point() +
