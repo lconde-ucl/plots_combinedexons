@@ -9,6 +9,7 @@ for (dir in c("human/bigwigs", "human/bigwigs_subtract", "human/bigwigs_nopseudo
 	dir.create(paste0(dir, "_plots/average_signals/"), showWarnings = FALSE)
 
 	means<-read.table(paste0(dir, "_plots/average_signal.txt"), sep="\t", header=T)
+	means$Region <- gsub("_filtered", "", means$Region)
 
 	# Reorder the Region
 	means$Region <- factor(means$Region, levels = c("exon", "intron"))
