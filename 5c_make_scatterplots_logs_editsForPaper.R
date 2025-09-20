@@ -25,14 +25,14 @@ for (dir in c("human/bigwigs","mouse/bigwigs")){
 			type = "exonintron"
 
 			#-exon
-			fileplusexon <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon.txt"), sep="\t", header=F)
-			fileminusexon <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon.txt"), sep="\t", header=F)
+			fileplusexon <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon_filtered.txt"), sep="\t", header=F)
+			fileminusexon <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon_filtered.txt"), sep="\t", header=F)
 			colnames(fileplusexon) <- c("name","size","covered_p","sum_p","mean0_p","mean_p", "type")
 			colnames(fileminusexon) <- c("name","size","covered_m","sum_m","mean0_m","mean_m", "type")
 
 			#-intron
-			fileplusintron <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron.txt"), sep="\t", header=F)
-			fileminusintron <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron.txt"), sep="\t", header=F)
+			fileplusintron <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron_filtered.txt"), sep="\t", header=F)
+			fileminusintron <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron_filtered.txt"), sep="\t", header=F)
 			colnames(fileplusintron) <- c("name","size","covered_p","sum_p","mean0_p","mean_p", "type")
 			colnames(fileminusintron) <- c("name","size","covered_m","sum_m","mean0_m","mean_m", "type")
 
@@ -41,8 +41,8 @@ for (dir in c("human/bigwigs","mouse/bigwigs")){
 
 			if(dim(fileexon)[1] != dim(fileplusexon)[1]){
 				print("ERROR: Files do not have the same number of rows!")
-				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon.txt"))
-				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon.txt"))
+				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon_filtered.txt"))
+				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_exon_filtered.txt"))
 				print(dim(fileexon))
 				print(dim(fileplusexon))
 				print(dim(fileminusexon))
@@ -50,8 +50,8 @@ for (dir in c("human/bigwigs","mouse/bigwigs")){
 			}
 			if(dim(fileintron)[1] != dim(fileplusintron)[1]){
 				print("ERROR: Files do not have the same number of rows!")
-				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron.txt"))
-				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron.txt"))
+				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron_filtered.txt"))
+				print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_intron_filtered.txt"))
 				print(dim(fileintron))
 				print(dim(fileplusintron))
 				print(dim(fileminusintron))

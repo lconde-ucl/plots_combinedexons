@@ -24,8 +24,8 @@ for (dir in c("human/bigwigs","human/bigwigs_subtract", "human/bigwigs_nopseudo"
 		if ((paste0(sample, "-", "PlusTag") %in% samples2) && (paste0(sample, "-", "MinusTag") %in% samples2)){
 			for (type in c("exon","intron")){
 
-				fileplus <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"), sep="\t", header=F)
-				fileminus <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"), sep="\t", header=F)
+				fileplus <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"), sep="\t", header=F)
+				fileminus <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"), sep="\t", header=F)
 				colnames(fileplus) <- c("name","size","covered_p","sum_p","mean0_p","mean_p", "type")
 				colnames(fileminus) <- c("name","size","covered_m","sum_m","mean0_m","mean_m", "type")
 
@@ -33,8 +33,8 @@ for (dir in c("human/bigwigs","human/bigwigs_subtract", "human/bigwigs_nopseudo"
 
 				if(dim(file)[1] != dim(fileplus)[1]){
 					print("ERROR: Files do not have the same number of rows!")
-					print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"))
-					print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"))
+					print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"))
+					print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_MinusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"))
 					print(dim(file))
 					print(dim(fileplus))
 					print(dim(fileminus))
@@ -65,8 +65,8 @@ for (dir in c("human/bigwigs","human/bigwigs_subtract", "human/bigwigs_nopseudo"
 			(paste0("GFP_", str_split_fixed(sample, "_", n=2)[2], "-PlusTag") %in% samples2)){
 			for (type in c("exon","intron")){
 
-				fileplus <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"), sep="\t", header=F)
-				gfpplus <- read.table(paste0(dir, "/GFP", "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"), sep="\t", header=F)
+				fileplus <- read.table(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"), sep="\t", header=F)
+				gfpplus <- read.table(paste0(dir, "/GFP", "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"), sep="\t", header=F)
 				colnames(fileplus) <- c("name","size","covered_p","sum_p","mean0_p","mean_p", "type")
 				colnames(gfpplus) <- c("name","size","covered_m","sum_m","mean0_m","mean_m", "type")
 
@@ -74,8 +74,8 @@ for (dir in c("human/bigwigs","human/bigwigs_subtract", "human/bigwigs_nopseudo"
 
 				if(dim(file)[1] != dim(fileplus)[1]){
 					print("ERROR: Files do not have the same number of rows!")
-					print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"))
-					print(paste0(dir, "/GFP", "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,".txt"))
+					print(paste0(dir, "/", str_split_fixed(sample, "_", n=2)[1], "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"))
+					print(paste0(dir, "/GFP", "_PlusTag_", str_split_fixed(sample, "_", n=2)[2], ".merged.mapped.",species,".inputnormalised_",type,"_filtered.txt"))
 					print(dim(file))
 					print(dim(fileplus))
 					print(dim(gfpplus))
